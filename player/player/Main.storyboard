@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="player" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jey-kQ-fKE">
+                                <rect key="frame" x="20" y="762" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="led-KE-rlT">
+                                <rect key="frame" x="79" y="757" width="261" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwv-Vz-LTz">
+                                <rect key="frame" x="361" y="762" width="33" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="118" translatesAutoresizingMaskIntoConstraints="NO" id="EcO-fu-VzW">
+                                <rect key="frame" x="20" y="820" width="374" height="22"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UdD-70-fNu">
+                                        <rect key="frame" x="0.0" y="0.0" width="46" height="22"/>
+                                        <state key="normal" image="backward.end.alt" catalog="system"/>
+                                        <connections>
+                                            <action selector="perviousSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ozn-8L-BbB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GHS-eP-cbJ">
+                                        <rect key="frame" x="164" y="0.0" width="46" height="22"/>
+                                        <state key="normal" image="poweroff" catalog="system"/>
+                                        <state key="selected" image="pause.circle" catalog="system"/>
+                                        <connections>
+                                            <action selector="isPlaySong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qvi-8M-YU3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSM-Q0-9cM">
+                                        <rect key="frame" x="328" y="0.0" width="46" height="22"/>
+                                        <state key="normal" image="playpause" catalog="system"/>
+                                        <connections>
+                                            <action selector="isNextSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ux-jY-YaB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EcO-fu-VzW" secondAttribute="bottom" constant="20" id="1F1-jT-qNO"/>
+                            <constraint firstItem="EcO-fu-VzW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="j2L-fX-iZT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EcO-fu-VzW" secondAttribute="trailing" constant="20" id="yhf-e9-VXa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="initTime" destination="jey-kQ-fKE" id="KmI-sz-8SA"/>
+                        <outlet property="isPlay" destination="GHS-eP-cbJ" id="K29-MY-Mg5"/>
+                        <outlet property="nextSong" destination="jSM-Q0-9cM" id="u1r-Wz-dNJ"/>
+                        <outlet property="overTime" destination="rwv-Vz-LTz" id="nZ4-ze-afm"/>
+                        <outlet property="previous" destination="UdD-70-fNu" id="N4Y-9a-098"/>
+                        <outlet property="slide" destination="led-KE-rlT" id="orq-QG-oJD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13.043478260869566" y="88.392857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backward.end.alt" catalog="system" width="128" height="71"/>
+        <image name="pause.circle" catalog="system" width="128" height="121"/>
+        <image name="playpause" catalog="system" width="128" height="80"/>
+        <image name="poweroff" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
