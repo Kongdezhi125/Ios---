@@ -10,12 +10,32 @@ import AVFoundation
 import Photos
 
 class ViewController: UIViewController {
+    let imagePickerController = UIImagePickerController()
 
+    @IBOutlet weak var imageview: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         cameraPermissionCheck()
         photoPermissionCheck()
+        
+
+    }
+    
+    @IBAction func camera(_ sender: Any) {
+        imagePickerController.sourceType = .camera
+        imagePickerController.allowsEditing = true
+        imagePickerController.cameraDevice = .rear
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    @IBAction func photo(_ sender: Any) {
+        
+        imagePickerController.sourceType = .photoLibrary
+            imagePickerController.allowsEditing = true
+        present(imagePickerController, animated: true, completion: nil)
+        imagePickerController.delegate = self
+
     }
     func cameraPermissionCheck() {
         AVCaptureDevice.requestAccess(for: .video) { (granted) in
@@ -42,4 +62,12 @@ class ViewController: UIViewController {
 
 
 }
-
+extension ViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.editedImage] {
+            self.imageview.image = image as! UIImage
+        }
+        imagePickerController.dismiss(animated: true, completion: nil)
+    }
+    
+}
