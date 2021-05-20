@@ -1,0 +1,13 @@
+{
+  "Simulator Target Bundle": "-722.History-Today",
+  "aps":{
+    "alert":{
+      "title":"测试22",
+      "subtitle":"远程推送222",
+      "body":"这是一条从远处而来的通知2222"
+    },
+    "sound":"default",
+    "badge":22
+  }
+}
+///不支持模拟器
