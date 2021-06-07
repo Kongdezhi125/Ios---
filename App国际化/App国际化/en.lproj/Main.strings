@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "name："; ObjectID = "BPt-Fz-a8l"; */
+"BPt-Fz-a8l.text" = "name：";
+
+/* Class = "UITextField"; placeholder = "write you name"; ObjectID = "VXc-Vt-RS4"; */
+"VXc-Vt-RS4.placeholder" = "write you name";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "ddJ-pY-2TX"; */
+"ddJ-pY-2TX.normalTitle" = "Login";
