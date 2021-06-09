@@ -1,0 +1,10 @@
+//
+//  server_URL.xcconfig
+//  debug和release
+//
+//  Created by student on 2021/6/9.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+server_URL = "debug"
