@@ -1,8 +1,8 @@
 //
-//  MyWidget.swift
-//  MyWidget
+//  myWidgets_05.swift
+//  myWidgets-05
 //
-//  Created by student on 2021/6/17.
+//  Created by student on 2021/6/23.
 //
 
 import WidgetKit
@@ -11,11 +11,11 @@ import Intents
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent(), name: "")
+        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration, name: "")
+        let entry = SimpleEntry(date: Date(), configuration: configuration)
         completion(entry)
     }
 
@@ -26,7 +26,7 @@ struct Provider: IntentTimelineProvider {
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration, name: "张三")
+            let entry = SimpleEntry(date: entryDate, configuration: configuration)
             entries.append(entry)
         }
 
@@ -38,36 +38,42 @@ struct Provider: IntentTimelineProvider {
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationIntent
-    var name:String
     
 }
 
-struct MyWidgetEntryView : View {
+struct myWidgets_05EntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        
+        if entry.configuration.BackColor == BackColor.red {
+            Color.red
+        }
+        if entry.configuration.BackColor == BackColor.green {
+            Color.green
+        }
+        if entry.configuration.BackColor == BackColor.blue {
+            Color.blue
+        }
         Text(entry.date, style: .time)
-        Text(entry.name)
     }
 }
 
 @main
-struct MyWidget: Widget {
-    let kind: String = "MyWidget"
+struct myWidgets_05: Widget {
+    let kind: String = "myWidgets_05"
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            MyWidgetEntryView(entry: entry)
+            myWidgets_05EntryView(entry: entry)
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
     }
 }
 
-struct MyWidget_Previews: PreviewProvider {
+struct myWidgets_05_Previews: PreviewProvider {
     static var previews: some View {
-        MyWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), name: ""))
+        myWidgets_05EntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
